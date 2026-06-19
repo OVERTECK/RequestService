@@ -6,7 +6,7 @@ public class CertificateRequest
 
     public string EmployerId { get; set; } = default!;
     
-    public CertificateType CertificateType { get; set; }
+    public CertificateType Type { get; set; }
     
     public string? CustomDescription { get; set; }
     
