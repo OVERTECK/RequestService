@@ -33,7 +33,7 @@ public record RequestResponseDto(
     int CopiesCount,
     string Reason,
     RequestStatus Status,
-    DateTimeOffset CreatedAt,
+    DateTime CreatedAt,
     IReadOnlyCollection<RequestStatus> AllowedNextStatuses);
     
 public record StatusHistoryDto(
@@ -41,4 +41,4 @@ public record StatusHistoryDto(
     RequestStatus ToStatus,
     string ChangedBy,
     string? Comment,
-    DateTimeOffset ChangedAt);
+    DateTime ChangedAt);

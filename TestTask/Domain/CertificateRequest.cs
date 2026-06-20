@@ -16,7 +16,7 @@ public class CertificateRequest
     
     public RequestStatus Status { get; private set; } = RequestStatus.New;
     
-    public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     
     public string? IdempotencyKey { get; set; }
     
@@ -40,7 +40,7 @@ public class CertificateRequest
             ToStatus = next,
             ChangedBy = changedBy,
             Comment = comment,
-            ChangedAt = DateTimeOffset.UtcNow
+            ChangedAt = DateTime.UtcNow
         });
     }
 

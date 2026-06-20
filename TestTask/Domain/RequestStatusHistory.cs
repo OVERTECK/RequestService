@@ -14,5 +14,5 @@ public class RequestStatusHistory
     
     public string? Comment { get; set; }
     
-    public DateTimeOffset ChangedAt { get; set; } = DateTimeOffset.UtcNow;
+    public DateTime ChangedAt { get; set; } = DateTime.UtcNow;
 }
