@@ -100,7 +100,7 @@ public class RequestService(AppDbContext dbContext, ICurrentUser currentUser) : 
         var request = await dbContext.Requests.AsNoTracking().FirstOrDefaultAsync(r => r.Id == id, ct)
                       ?? throw new NotFoundException($"Заявка {id} не найдена.");
         
-        if (!currentUser.IsAccountant && request.EmployerId != currentUser.UserId)
+        if (!currentUser.IsAccountant)
             throw new ForbiddenException("Нет доступа к этой заявке.");
 
         return Map(request);
@@ -114,6 +114,19 @@ public class RequestService(AppDbContext dbContext, ICurrentUser currentUser) : 
                       ?? throw new NotFoundException($"Заявка {id} не найдена.");
         
         request.ChangeStatus(dto.Status, currentUser.UserId, dto.Comment);
+        
+        var from = request.Status;
+        
+        dbContext.History.Add(new RequestStatusHistory
+        {
+            Id = Guid.NewGuid(),
+            RequestId = request.Id,
+            FromStatus = from,
+            ToStatus = dto.Status,
+            ChangedBy = currentUser.UserId,
+            Comment = dto.Comment,
+            ChangedAt = DateTime.UtcNow
+        });
         
         await dbContext.SaveChangesAsync(ct);
 
