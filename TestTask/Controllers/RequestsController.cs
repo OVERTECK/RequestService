@@ -40,7 +40,6 @@ public class RequestsController(IRequestService requestService) : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetById(
         Guid id,
-        [FromHeader(Name = "X-User-Id")] string? userId,
         [FromHeader(Name = "X-Role")] string? role,
         CancellationToken ct)
         => Ok(await requestService.GetByIdAsync(id, ct));
