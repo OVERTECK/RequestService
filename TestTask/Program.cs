@@ -13,8 +13,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("Default")
-        ?? "Data Source=certificates.db"));
+    options.UseSqlite(
+            builder.Configuration.GetConnectionString("Default")
+            ?? "Data Source=certificate.db")
+        .EnableSensitiveDataLogging()
+        .LogTo(Console.WriteLine));
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUser, CurrentUser>();
