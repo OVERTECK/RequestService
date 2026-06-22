@@ -19,6 +19,7 @@ GitHub Rep - https://github.com/OVERTECK/RequestService
 Video - https://disk.yandex.ru/client/disk/TestsTasks?idApp=client&dialog=slider&idDialog=%2Fdisk%2FTestsTasks%2F2026-06-22%2013-32-17.mp4
 
 Вопросы:
+
     1. Какое архитектурное решение вы считаете самым рискованным и почему?
     
     Выбор SQLite и хранение состояния в одном процессе. Это идеально закрывает требование
