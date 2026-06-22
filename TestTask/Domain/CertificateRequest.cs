@@ -20,7 +20,7 @@ public class CertificateRequest
     
     public string? IdempotencyKey { get; set; }
     
-    public Guid RowVersion { get; set; }  = Guid.NewGuid();
+    public long RowVersion { get; set; }
 
     public List<RequestStatusHistory> History { get; set; } = [];
 
@@ -31,17 +31,7 @@ public class CertificateRequest
         
         var from = Status;
         Status = next;
-        RowVersion = Guid.NewGuid();
-        
-        History.Add(new RequestStatusHistory
-        {
-            RequestId = Id,
-            FromStatus = from,
-            ToStatus = next,
-            ChangedBy = changedBy,
-            Comment = comment,
-            ChangedAt = DateTime.UtcNow
-        });
+        RowVersion++;
     }
 
 }
