@@ -2,7 +2,7 @@
 
 public class RequestStatusHistory
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
+    public Guid Id { get; set; }
     
     public Guid RequestId { get; set; }
     
