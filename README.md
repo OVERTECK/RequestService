@@ -1,10 +1,12 @@
 Запуск:
+
     В папке /TestTask выполнить:
 
         dotnet run
 
 
 Эндпоинты, Для кого, Назначение:
+
     POST /api/requests - Сотрудник - Подать заявку
     GET /api/requests/mine - Сотрудник - Свои заявки и их статусы
     GET /api/requests?status= - Бухгалтер - Очередь заявок, фильтр по статусу
@@ -13,6 +15,7 @@
     GET /api/requests/{id}/history - Оба - История изменений статуса
 
 GitHub Rep - https://github.com/OVERTECK/RequestService
+
 Video - https://disk.yandex.ru/client/disk/TestsTasks?idApp=client&dialog=slider&idDialog=%2Fdisk%2FTestsTasks%2F2026-06-22%2013-32-17.mp4
 
 Вопросы:
